@@ -61,6 +61,7 @@
 		obj_bugu.x = 0
 		obj_bugu.y = 500
 	}
+	
 //Difficulty meter
 	switch global.difficulty
 		{

@@ -42,7 +42,14 @@
 			move_towards_point(900, 500, eggspd)
 			exit
 		}
-		else speed = 0
+		else speed = 0;
+		
+		if (!global.canwalk)
+		{
+			sprite_index = idle_sprt_bugu
+			exit
+		};
+		
 		
 	//Useful variables
 		var new_lane = lane_index

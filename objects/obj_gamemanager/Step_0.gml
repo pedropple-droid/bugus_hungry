@@ -10,7 +10,6 @@
 	
 //UI creator
 	if !instance_exists(obj_scoregui) instance_create_layer(x, y, "UI_Layer", obj_scoregui)
-	if !instance_exists(obj_rocks) instance_create_layer(x, y, "UI_Layer", obj_rocks)
 	if !instance_exists(obj_collectibles) instance_create_layer(x, y, "UI_Layer", obj_collectibles)
 	if !instance_exists(obj_linehazards) instance_create_layer(x, y, "UI_Layer", obj_linehazards)
 	
