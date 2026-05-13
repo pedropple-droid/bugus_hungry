@@ -94,7 +94,7 @@ if dfmenu
 		var boxX = dx - 460
 		var _menubox = sprt_9patch_menu
 		
-		if (drawn != 4)
+		if (drawn != 5)
 		{
 			if (!layer_exists("menubox")) layer_create(-1, "menubox")
 			_exactmenubox = layer_sprite_create("menubox", boxX, boxY, _menubox)
@@ -197,10 +197,10 @@ if kbind
 	
 	//Font color	
 	draw_set_colour(c_white);
-	draw_text(400, 100, "Controls");
+	draw_text(640, 60, "Controls");
 
 	//Draw menu
-	for (var i = 0; i < array_length(menu); i++)
+	for (var i = 0; i < array_length(kb_menu); i++)
 	{
 		var item = kb_menu[i];
 		var dx = kb_menu_start_x
@@ -215,11 +215,13 @@ if kbind
 		else text += key_to_string(variable_global_get(item.ref));
 
 		//Menu box draw
-		var boxY = dy + (28 + (i * 5))
-		var boxX = dx - 200
-		var _menubox = sprt_9patch_menu
+		var boxY = dy + (28 + (i * 5));
+		var boxX = dx - 200;
+		var boxWidth = 64 * 6.3;
+		var centerX = boxX + (boxWidth /2);
+		var _menubox = sprt_9patch_menu;
 		
-		if (drawn != 4)
+		if (drawn != 5)
 		{
 			if (!layer_exists("menubox")) layer_create(-1, "menubox")
 			_exactmenubox = layer_sprite_create("menubox", boxX, boxY, _menubox)
@@ -242,9 +244,15 @@ if kbind
 			case 3:
 				dx = kb_menu_start_x - 144;
 			break;
+			case 4:
+				dx = kb_menu_start_x - 87;
+			break;
 		};
 
-		draw_text(dx, dy, text);
+		draw_set_halign(fa_center)
+		draw_text(centerX, dy, text);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
 	};
 
 };

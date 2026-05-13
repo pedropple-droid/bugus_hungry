@@ -63,7 +63,7 @@
 		{ name:"Move Down", ref:"key_down", waiting:false },
 		{ name:"Move Left", ref:"key_left", waiting:false },
 		{ name:"Move Right", ref:"key_right", waiting:false },
-		{ name:"Drop Egg", reg:"drop_egg", waiting:false },
+		{ name:"Drop Egg", ref: "drop_egg", waiting:false },
 	];
 
 	kb_index = 0;

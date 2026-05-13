@@ -59,7 +59,7 @@
 	if (global.learning)
 	{
 		obj_bugu.x = 0
-		obj_bugu.y = 564
+		obj_bugu.y = 500
 	}
 //Difficulty meter
 	switch global.difficulty

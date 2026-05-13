@@ -47,9 +47,10 @@
 	]
 	
 //Text variables
-	txt_index = 0
-	drawn = 0
-	t = 200
+	txt_index = 0;
+	drawn = 0;
+	t = 200;
+	at_crossroads = false;
 	var _current_text = pt_intro_texts[txt_index];
 
 	scribble_object = scribble(_current_text)

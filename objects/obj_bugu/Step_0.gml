@@ -39,7 +39,7 @@
 	//Tutorial
 		if (!global.candropegg)
 		{
-			move_towards_point(900, 628, eggspd)
+			move_towards_point(900, 500, eggspd)
 			exit
 		}
 		else speed = 0

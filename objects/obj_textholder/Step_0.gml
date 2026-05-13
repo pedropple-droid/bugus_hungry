@@ -1,15 +1,23 @@
 //Variables
 	if (at_crossroads)
 	{
-		if (global.candropegg) 
+		if (global.candropegg && keyboard_check_pressed(global.drop_egg))
 		{
-			keyboard_check_pressed()
+			t = 50
+			at_crossroads = false
 		}
+		else if (global.canwalk && obj_bugu.hasEgg)
+		{
+			t = 50
+			at_crossroads = false
+		}
+		exit
 	}
 	else
 	{
 		t--;
 	};
+	
 	var _skip = (t <= 0);
 
 //Follow egg
@@ -26,8 +34,16 @@
 		};
 	};
 	
-	if (txt_index == 1) global.candropegg = true;
-	if (txt_index == 9) global.canwalk = true;
+	if (txt_index == 1)
+	{
+		global.candropegg = true;
+		at_crossroads = true;
+	}
+	if (txt_index == 9) 
+	{
+		global.canwalk = true;
+		at_crossroads = true;
+	}
 	if (txt_index == 10) global.rock = true;
 	if (txt_index == 13) global.arrow = true;
 	if (txt_index == 17) global.canedge = true;

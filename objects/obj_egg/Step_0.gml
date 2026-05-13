@@ -1,4 +1,10 @@
 //Check
+	if (keyboard_check_pressed(global.drop_egg))
+	{
+		mask_index = egg_nohit;
+		isThrown = true
+	};
+	
 	if isThrown
 	{
 		//Check collision
