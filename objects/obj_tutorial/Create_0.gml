@@ -1,18 +1,17 @@
 //Data sctructures
 	pt_intro_texts = [
-	"[shake]OW", //1
-	"ME SOLTA AI MERMÃO[/shake]",
+	"[shake]OW", 
+	"[shake]ME SOLTA AI MERMÃO",//1
 	
 	//Drop egg input
 	
-	"Que maluquice, não se pode dormir em paz",
+	"Que maluquice, virou crime dormir em paz",
 	"Quem é você?",
-	"Cadê minha mãe?", //5
-	"E laia...",
-	"Tá, é o seguinte",
+	"Cadê minha mãe?",
+	"Tá, é o seguinte",//5
 	"Ela se estressa fácil",
 	"E quando ela tá estressada [wave]o bicho pega[/wave]",
-	"Rápido, me segura aqui", //10
+	"Rápido, me segura aqui", 
 	
 	//Walk over egg
 	
@@ -20,36 +19,36 @@
 	
 	//Rock fall
 	
-	"...Não precisa responder, já percebi",
+	"...Não precisa responder, já percebi",//10
 	"...",
 	"Tá escutando esse barulho?",
 	
 	//Arrow warning
 	
-	"[shake]MEU SANTO PTERODÁCTILO[/shake]", //15
+	"[shake]MEU SANTO PTERODÁCTILO[/shake]", 
 	"Isso foi uma... flecha?",
-	"Isso não faz nem sentido",
+	"Isso não faz nem sentido",//15
 	"Ok, chega, me tira daqui logo",
 	
 	//Walk to edge, rex attack
 	
 	"...[jitter]Mãe?[/jitter]...",
-	"...Acho que ela não consegue sentir meu cheiro...", //20
+	"...Acho que ela não consegue sentir meu cheiro...", 
 	"...",
-	"..Você fede muito...",
+	"..Você fede muito...",//20
 	"...",
 	"...Paia isso ai.",
 	
 	//Rex scream, rocks falling
 	
-	"!!", //25
-	"[shake]CORRE MERMÃO[/shake]",
+	"!!", 
+	"[shake]CORRE MERMÃO[/shake]"//24
 	]
-	
+
 //Text variables
 	txt_index = 0;
 	drawn = 0;
-	t = 200;
+	t = 150;
 	at_crossroads = false;
 	var _current_text = pt_intro_texts[txt_index];
 

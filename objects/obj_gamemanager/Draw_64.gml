@@ -1,10 +1,8 @@
 //MAJOR CHECK
 	if (!instance_exists(obj_bugu)) exit
 	if (room != rm_game) exit
+	if (!global.canstart) exit
 
-//TUTORIAL CHECK
-	if (global.learning) exit
-	
 //Death screen manager
 	//Draws the game over text
 	var _guiW = display_get_gui_width() / 2

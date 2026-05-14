@@ -45,24 +45,9 @@
 	PPWin = false;
 	PPReset = false;
 	totalLife = 0;
-	
-	global.learning = true;
-	global.candropegg = false;
-	global.canwalk = false;
-	global.rock = false;
-	global.rockfinished = false;
-	global.arrow = false;
-	global.arrowfinished = false;
-	global.canedge = false;
-	global.isatedge = false;
-	global.canstart = false;
-	
-	
-	if (global.learning)
-	{
-		obj_bugu.x = 0
-		obj_bugu.y = 500
-	}
+
+	obj_bugu.x = 0
+	obj_bugu.y = 500
 	
 //Difficulty meter
 	switch global.difficulty
@@ -118,3 +103,14 @@
 				totalLife = 1;
 			break;
 		};
+	
+//Tutorial handler
+	//Variables
+	global.learning = false;
+	global.candropegg = false;
+	global.canwalk = false;
+	global.rock = false;
+	global.arrow = false;
+	global.canedge = false;
+	global.endededge = false;
+	global.canstart = false;

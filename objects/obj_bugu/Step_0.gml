@@ -37,71 +37,77 @@
 	
 //Game Handler//
 	//Tutorial
-		if (!global.candropegg)
+	if (!global.canwalk)
+	{
+		if (point_distance(x, y, 880, 500) > 5) && (!global.learning)
 		{
-			move_towards_point(900, 500, eggspd)
-			exit
+			move_towards_point(1500, 500, eggspd)
+			sprite_index = walk_sprt_bugu
 		}
-		else speed = 0;
-		
-		if (!global.canwalk)
+		else if (point_distance(x, y, 880, 500) <= 5)
 		{
+			global.learning = true
+		}
+		else if (obj_tutorial.txt_index == 1)
+		{
+			speed = 0
 			sprite_index = idle_sprt_bugu
-			exit
-		};
-		
-		
+		}
+		exit
+	}
+	
+	
 	//Useful variables
-		var new_lane = lane_index
-		currLane = lane_index //Used for depth check
+	var new_lane = lane_index
+	currLane = lane_index //Used for depth check
 
 	//Movement
+	if (!is_being_thrown)
+	{
+		hspd = _move * walkspd;
+		if (place_meeting(x + hspd, y, obj_gamemanager.obstacles))
+		{
+			while (!place_meeting(x + sign(hspd), y, obj_gamemanager.obstacles))
+			{
+				x += sign(hspd)
+			};
+			hspd = 0;
+		};
+		x += hspd;
+	};
+	
+	if (is_moving)
+	{
+		sprtdir = sign(_move);
+		sprite_index = walk_sprt_bugu
+			
 		if (!is_being_thrown)
 		{
-			hspd = _move * walkspd;
-			if (place_meeting(x + hspd, y, obj_gamemanager.obstacles))
-			{
-				while (!place_meeting(x + sign(hspd), y, obj_gamemanager.obstacles))
-				{
-					x += sign(hspd)
-				};
-				hspd = 0;
-			};
-			x += hspd;
+			if (hasEgg) global.player_score += 0.1;
 		};
-	
-		if (is_moving)
-		{
-			sprtdir = sign(_move);
-			sprite_index = walk_sprt_bugu
-			
-			if (!is_being_thrown)
-			{
-				if (hasEgg) global.player_score += 0.1;
-			};
-		}
+	}
 		
-		else if (!is_being_thrown)
-		{
-			sprite_index = idle_sprt_bugu
-		};
+	else if (!is_being_thrown)
+	{
+		sprite_index = idle_sprt_bugu
+	};
 		
-		image_xscale = sprtdir
+	image_xscale = sprtdir
 		
-		if (!hasEgg && meat <= 0)
+	if (!hasEgg && meat <= 0)
+	{
+		sprite_index = sprt_death
+		var _emitter1 = audio_emitter_create();
+		var _emitter1_bus = audio_bus_create();
+		audio_emitter_bus(_emitter1, _emitter1_bus);
+		//Creation of audio bus and sound play
+		_emitter1_bus.effects[0] = audio_effect_create(AudioEffectType.Bitcrusher,	
 		{
-			sprite_index = sprt_death
-			var _emitter1 = audio_emitter_create();
-			var _emitter1_bus = audio_bus_create();
-			audio_emitter_bus(_emitter1, _emitter1_bus);
-			//Creation of audio bus and sound play
-			_emitter1_bus.effects[0] = audio_effect_create(AudioEffectType.Bitcrusher,	
-			{
-				gain: 0.8, factor: 5, resolution: 16, mix: 0.3 
-			});
-			audio_play_sound_on(_emitter1, snd_buguhurt, 0, 10, choose(0.8, 1) , 0, random_range(0.75, 1.25))
-			exit
-		}
+			gain: 0.8, factor: 5, resolution: 16, mix: 0.3 
+		});
+		audio_play_sound_on(_emitter1, snd_buguhurt, 0, 10, choose(0.8, 1) , 0, random_range(0.75, 1.25))
+		exit
+	}
 	//Damage handler
 		//Damage detection
 		if (place_meeting(x, y, obj_gamemanager.hazards) && !is_being_thrown)

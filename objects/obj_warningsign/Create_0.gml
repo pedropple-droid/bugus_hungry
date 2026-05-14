@@ -8,5 +8,12 @@
 	depth = -5
 
 // Determine side once at birth
-	if (obj_linehazards.spawn_x < obj_bugu.x) my_side = "left";
-	else my_side = "right";
+	if global.learning
+	{
+		my_side = "right"
+	}
+	else
+	{
+		if (obj_linehazards.spawn_x < obj_bugu.x) my_side = "left";
+		else my_side = "right";
+	}

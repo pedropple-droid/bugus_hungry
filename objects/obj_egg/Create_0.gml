@@ -1,11 +1,4 @@
-//Create text obj
-	if (!instance_exists(obj_textholder))
-	{
-		instance_create_layer(x, y, "Instances", obj_textholder)
-	};
-	
-	text_follow = obj_textholder
-	
+
 //Useful variables
 	lane_index = 0;
 	lanes = [480, 544, 608];

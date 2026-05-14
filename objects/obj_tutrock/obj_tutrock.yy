@@ -1,17 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_textholder",
+  "%Name":"obj_tutrock",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_textholder",
+  "name":"obj_tutrock",
   "overriddenProperties":[],
   "parent":{
-    "name":"Ingame",
-    "path":"folders/handlers/Ingame.yy",
+    "name":"Main",
+    "path":"folders/objects/Main.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprt_placeholder",
-    "path":"sprites/sprt_placeholder/sprt_placeholder.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
