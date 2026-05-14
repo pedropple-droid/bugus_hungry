@@ -50,7 +50,9 @@
 	global.candropegg = false;
 	global.canwalk = false;
 	global.rock = false;
+	global.rockfinished = false;
 	global.arrow = false;
+	global.arrowfinished = false;
 	global.canedge = false;
 	global.isatedge = false;
 	global.canstart = false;

@@ -8,6 +8,7 @@
 		//Tutorial shadow sequence
 		if (!layer_sequence_exists("Instances", active_shadow_id))
 		{
+			show_debug_message("got at shadow spawn")
 			active_shadow_id = layer_sequence_create("Instances", _tut_spawn_x, _tut_spawn_y, shadow_seq)
 		};
 		
@@ -40,9 +41,12 @@
 				
 				var curr_obst = choose(obj_rock_obst, obj_explodingrock)
 				instance_create_layer(_tut_spawn_x, _tut_spawn_y, "Instances", curr_obst);
-				global.rock = false
 				obj_textholder.at_crossroads = false
+				obj_textholder.t = 0
+				show_debug_message("got at rock spawn")
 			};
+			global.rock = false
+			instance_destroy(obj_rocks)
 		};
 		
 		//Tutorial shake effect

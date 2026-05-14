@@ -15,6 +15,11 @@
 		{
 			if !instance_exists(obj_rocks) instance_create_layer(x, y, "UI_Layer", obj_rocks)
 		}
+		else if (global.canstart)
+		{
+			global.learning = false
+			at_crossroads = false
+		}
 		exit
 	};
 	
@@ -32,7 +37,7 @@
 		if (txt_index < array_length(pt_intro_texts) - 1) 
 		{
 			txt_index++;
-			t = 50
+			t = 10
 		};
 	};
 	
@@ -59,5 +64,11 @@
 	if (txt_index == 17) 
 	{
 		global.canedge = true;
+		at_crossroads = true;
+	};
+	
+	if (txt_index = 26)
+	{
+		global.canstart = true;
 		at_crossroads = true;
 	};
