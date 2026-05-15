@@ -302,6 +302,7 @@
     {"id":{"name":"sprt_egg","path":"sprites/sprt_egg/sprt_egg.yy",},},
     {"id":{"name":"sprt_exploding","path":"sprites/sprt_exploding/sprt_exploding.yy",},},
     {"id":{"name":"sprt_geyser","path":"sprites/sprt_geyser/sprt_geyser.yy",},},
+    {"id":{"name":"sprt_growling","path":"sprites/sprt_growling/sprt_growling.yy",},},
     {"id":{"name":"sprt_interrogationmark","path":"sprites/sprt_interrogationmark/sprt_interrogationmark.yy",},},
     {"id":{"name":"sprt_meatthink","path":"sprites/sprt_meatthink/sprt_meatthink.yy",},},
     {"id":{"name":"sprt_parallax_backbg","path":"sprites/sprt_parallax_backbg/sprt_parallax_backbg.yy",},},

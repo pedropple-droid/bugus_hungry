@@ -7,38 +7,45 @@
 	{
 		if (global.candropegg && keyboard_check_pressed(global.drop_egg))
 		{
-			t = 0
-			at_crossroads = false
+			t = 0;
+			at_crossroads = false;
 		}
-		else if (global.canwalk && obj_bugu.hasEgg)
+		else if (global.canwalk && obj_bugu.hasEgg && !global.haswalked)
 		{
-			t = 0
-			at_crossroads = false
+			t = 0;
+			global.haswalked = true;
+			at_crossroads = false;
 		}
 		else if (global.rock)
 		{
-			t = 0
+			t = 0;
 			global.rock = false;
 			at_crossroads = false;
 		}
 		else if (global.arrow)
 		{
-			t = 0
+			t = 0;
 			global.arrow = false;
 			at_crossroads = false;
 		}
-		else if (global.endededge)
+		else if (global.midedge)
 		{
-			t = 0
+			t = 0;
 			global.canedge = false;
-			global.endededge = false;
+			at_crossroads = false;
+		}
+		else if (global.endedge)
+		{
+			t = 0;
+			global.midedge = false;
 			at_crossroads = false;
 		}
 		else if (global.canstart)
 		{
-			t = 0
-			global.learning = false
-			at_crossroads = false
+			t = 0;
+			global.endedge = false;
+			global.learning = false;
+			at_crossroads = false;
 		}
 		exit
 	};
@@ -75,24 +82,27 @@
 			if !instance_exists(obj_tutrock)
 			{
 				show_debug_message("CASE 9")
-				instance_create_layer(x, y, "Instances", obj_tutrock)
+				instance_create_layer(x, y, "Instances", obj_tutrock);
 			};
+			at_crossroads = true;
 		break;
 		
 		case 12:
 			if !instance_exists(obj_warningsign) 
 			{
 				show_debug_message("CASE 12")
-				instance_create_layer(x, 628, "Instances", obj_warningsign)
+				instance_create_layer(x, 628, "Instances", obj_warningsign);
 			};
+			at_crossroads = true;
 		break;
 		
 		case 16:
-			global.canedge = true;
-			if !instance_exists(obj_tutrex) instance_create_layer(x, y, "Instances", obj_tutrex)
+			if !instance_exists(obj_tutrex) 
 			{
+				global.canedge = true;
 				show_debug_message("CASE 16")
-			};
+				at_crossroads = true;
+			}
 		break;
 		
 		case 24:

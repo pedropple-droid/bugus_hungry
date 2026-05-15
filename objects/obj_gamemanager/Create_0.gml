@@ -109,8 +109,10 @@
 	global.learning = false;
 	global.candropegg = false;
 	global.canwalk = false;
+	global.haswalked = false;
 	global.rock = false;
 	global.arrow = false;
 	global.canedge = false;
-	global.endededge = false;
+	global.midedge = false;
+	global.endedge = false;
 	global.canstart = false;

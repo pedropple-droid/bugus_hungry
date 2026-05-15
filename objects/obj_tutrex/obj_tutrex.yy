@@ -3,13 +3,16 @@
   "%Name":"obj_tutrex",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":76,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_tutrex",
   "overriddenProperties":[],
   "parent":{
-    "name":"Main",
-    "path":"folders/objects/Main.yy",
+    "name":"Intro",
+    "path":"folders/handlers/Intro.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -29,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprt_trex",
+    "path":"sprites/sprt_trex/sprt_trex.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

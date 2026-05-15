@@ -3,9 +3,10 @@
 	var _tut_spawn_y = obj_bugu.y
 		
 //Tutorial shadow sequence
-	if (!layer_sequence_exists("Instances", active_shadow_id))
+	if (global.rock) exit
+	if (!layer_sequence_exists("Instances", active_shadow_id) && (!noshadowpls))
 	{
-		show_debug_message("got at shadow spawn")
+		noshadowpls = true
 		active_shadow_id = layer_sequence_create("Instances", _tut_spawn_x, _tut_spawn_y, shadow_seq)
 	};
 		
@@ -40,8 +41,8 @@
 			instance_create_layer(_tut_spawn_x, _tut_spawn_y, "Instances", curr_obst);
 			if instance_exists(obj_tutrock)
 			{
+				global.rock = true
 				instance_destroy(obj_tutrock)
-				global.rock = false
 			}
 		};
 	};

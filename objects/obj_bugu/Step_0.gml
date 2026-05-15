@@ -56,6 +56,25 @@
 		exit
 	}
 	
+	if (global.canedge)
+	{
+		if (x < 700 || x > room_width - 700) && (!instance_exists(obj_tutrex))
+		{
+			var _leftW = room_width / 3.6;
+			var _rightW = room_width - _leftW;
+			var _spawn_x = x
+			
+			if (obj_bugu.x < _leftW) 
+			{
+			    _spawn_x = -350; // Left side, off-screen
+			} else {
+			    _spawn_x = room_width + 350; // Right side, off-screen
+			};
+			instance_create_layer(_spawn_x, 384, "Instances", obj_tutrex)
+	    };
+	};
+	
+	if (global.midedge) exit
 	
 	//Useful variables
 	var new_lane = lane_index

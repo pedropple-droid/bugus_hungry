@@ -10,8 +10,8 @@
   "name":"obj_tutorial",
   "overriddenProperties":[],
   "parent":{
-    "name":"Main",
-    "path":"folders/objects/Main.yy",
+    "name":"Intro",
+    "path":"folders/handlers/Intro.yy",
   },
   "parentObjectId":null,
   "persistent":false,

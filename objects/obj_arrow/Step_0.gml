@@ -14,4 +14,8 @@
 		global.last_val = global.player_score;
 		global.player_score += 10 * global.score_multiplier;
 		instance_destroy();
-	}
+		if (global.learning)
+		{
+			global.arrow = true
+		};
+	};

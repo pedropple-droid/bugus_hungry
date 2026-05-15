@@ -12,6 +12,7 @@
 	active_shadow_id = -1;
 	active_falling_id = -1;
 	active_rock_id = -1;
+	noshadowpls = false;
 	
 //Falling logic
 	predict_time = 100;
