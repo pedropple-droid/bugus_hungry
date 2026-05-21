@@ -135,7 +135,7 @@
 	}
 	//Damage handler
 		//Damage detection
-		if (place_meeting(x, y, obj_gamemanager.hazards) && !is_being_thrown)
+		if (place_meeting(x, y, obj_gamemanager.hazards) && !is_being_thrown && !global.learning)
 		{
 			if (invulTimer <= 0)
 			{

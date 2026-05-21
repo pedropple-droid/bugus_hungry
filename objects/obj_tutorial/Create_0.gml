@@ -34,15 +34,14 @@
 	
 	"...[jitter]Mãe?[/jitter]...",
 	"...Acho que ela não consegue sentir meu cheiro...", 
-	"...",
-	"..Você fede muito...",//20
-	"...",
+	"..Você fede muito...",
+	"...",//20
 	"...Paia isso ai.",
 	
 	//Rex scream, rocks falling
 	
 	"!!", 
-	"[shake]CORRE MERMÃO[/shake]"//24
+	"[shake]CORRE MERMÃO[/shake]"//23
 	]
 
 //Text variables

@@ -10,8 +10,6 @@
 	var _textbox = sprt_9patch_intro;
 
 	//Text box
-	//First check
-	
 	if layer_exists("intro_box")
 	{
 		layer_destroy("intro_box");

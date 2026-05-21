@@ -67,7 +67,7 @@ if fmenu
 	scribble("[f_skip][wave]Current Hi-Score:[wave] " + string(round(global.overall_score))).draw(_curW,_curH)
 };
 
-if dfmenu
+if (dfmenu && (!changing))
 {
 	//Remove menu boxes
 	if layer_exists("menubox")
@@ -271,7 +271,6 @@ if credits
 	//Draws font text
 	var dy = cr_menu_start_y + cr_menu_spacing
 	draw_text(320, dy, cr_menu);
-
 };
 
 if changing

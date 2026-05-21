@@ -111,9 +111,10 @@
 			at_crossroads = true;
 		break;
 		
-		case 24:
+		case 23:
 			global.canstart = true;
 			global.midedge = false;
 			show_debug_message("CASE 24")
+			alarm[0] = 400
 		break;
 	};
