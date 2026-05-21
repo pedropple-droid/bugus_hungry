@@ -103,8 +103,6 @@ if dfmenu
 			drawn += 1
 		};
 	};
-	
-	
 	//Reset colour
 	draw_set_colour(c_white);
 }
@@ -275,3 +273,13 @@ if credits
 	draw_text(320, dy, cr_menu);
 
 };
+
+if changing
+{
+	//Remove menu boxes
+	if layer_exists("menubox")
+	{
+		layer_destroy("menubox");
+		drawn = 0
+	}
+}

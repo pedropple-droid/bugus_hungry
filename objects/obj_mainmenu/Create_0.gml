@@ -6,6 +6,8 @@
 	kbind = false
 	credits = false
 	drawn = 0
+	t = 0
+	t_dur = 0.2
 	
 	//Main Menu
 	menu = [

@@ -48,7 +48,7 @@
 		{
 			global.learning = true
 		}
-		else if (obj_tutorial.txt_index == 1)
+		else if ((obj_tutorial.txt_index == 1) || (obj_tutorial.txt_index == 17))
 		{
 			speed = 0
 			sprite_index = idle_sprt_bugu
@@ -66,15 +66,21 @@
 			
 			if (obj_bugu.x < _leftW) 
 			{
+				show_debug_message("spawning at left side")
 			    _spawn_x = -350; // Left side, off-screen
 			} else {
-			    _spawn_x = room_width + 350; // Right side, off-screen
+				show_debug_message("spawning at right side")
+			    _spawn_x = room_width + 250; // Right side, off-screen
 			};
 			instance_create_layer(_spawn_x, 384, "Instances", obj_tutrex)
 	    };
 	};
 	
-	if (global.midedge) exit
+	if (global.midedge) 
+	{
+		sprite_index = idle_sprt_bugu
+		exit
+	}
 	
 	//Useful variables
 	var new_lane = lane_index
@@ -192,7 +198,7 @@
 		//Knockback
 		if (is_being_thrown)
 		{
-			var _nextX = lerp(x, throw_bugu_x, 0.15);
+			var _nextX =  lerp(x, throw_bugu_x, 0.15);
 		
 			if (place_meeting(_nextX, y, obj_gamemanager.obstacles)) is_being_thrown = false;
 			else x = _nextX;

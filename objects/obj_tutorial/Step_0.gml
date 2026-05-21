@@ -60,7 +60,7 @@
 		if (txt_index < array_length(pt_intro_texts) - 1) 
 		{
 			txt_index++;
-			t = 10
+			t = 150
 		};
 	};
 	
@@ -105,9 +105,15 @@
 			}
 		break;
 		
+		case 17:
+			global.endedge = true;
+			show_debug_message("CASE 17")
+			at_crossroads = true;
+		break;
+		
 		case 24:
 			global.canstart = true;
-			at_crossroads = true;
+			global.midedge = false;
 			show_debug_message("CASE 24")
 		break;
 	};

@@ -73,8 +73,8 @@
 		{
 			if (keyboard_check_pressed(global.key_select)) || !audio_is_playing(snd_rexy)
 			{
-				dfmenu = false;
 				changing = false;
+				dfmenu = false;
 				audio_stop_sound(snd_rexy);
 				room_goto(rm_game);
 			};
@@ -105,10 +105,12 @@
 				{
 					global.difficulty = "impossible";
 				};
+				
+				changing = true;
+			
 				layer_sprite_change(mnArt, sprt_postplay);
 				audio_stop_sound(snd_menusong);
 				sound_handler(snd_rexy);
-				changing = true;
 			};
 		};
 	}

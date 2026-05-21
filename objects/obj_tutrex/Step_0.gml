@@ -20,8 +20,11 @@
 //STATE 2: The Hit Kill
 	else if (state == "GROWLING") 
 	{
-		show_debug_message("growling")
-		sprite_index = sprt_growling;
+		show_debug_message("growling!")
+		if global.endedge
+		{
+			state = "RETREATING"
+		};
 	}
 
 //STATE 3: Going back off-screen
@@ -36,6 +39,5 @@
     
 	    if (x < -400 || x > room_width + 400) {
 	        instance_destroy();
-			global.endedge = true
 	    };
 	};
