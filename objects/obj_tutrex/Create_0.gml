@@ -4,7 +4,8 @@
 
 //State machine
 	state = "CHASING";
-	
+	has_triggered_mid = false
+
 //MS Variable
 	move_speed = 1;
 	retreat_speed = 20;

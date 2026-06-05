@@ -24,9 +24,6 @@
 	
 	//Text
 	draw_set_halign(fa_center)
-	_current_text.draw(x, y);
-	
-	//typewriter
-	var typist = scribble_typist();
-	typist.in(1, 0.1)
+	_current_text.draw(x, y, typist);
+
 	

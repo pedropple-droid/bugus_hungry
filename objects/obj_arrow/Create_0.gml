@@ -15,3 +15,9 @@
 
 //Flip Sprite
 	image_xscale = -move_dir;
+
+//Tutorial check
+		if (global.learning)
+		{
+			global.arrow = true
+		};

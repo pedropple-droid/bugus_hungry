@@ -7,8 +7,8 @@
 	
 	//Movement
 	hspd = 0;
-	walkspd = 6.5;
-	eggspd = 3.5;
+	walkspd = 7.0;
+	eggspd = 4.5;
 
 	//Sprite
 	sprtdir = 1;

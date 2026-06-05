@@ -317,6 +317,7 @@
     {"id":{"name":"sprt_placeholder","path":"sprites/sprt_placeholder/sprt_placeholder.yy",},},
     {"id":{"name":"sprt_postplay","path":"sprites/sprt_postplay/sprt_postplay.yy",},},
     {"id":{"name":"sprt_preplay","path":"sprites/sprt_preplay/sprt_preplay.yy",},},
+    {"id":{"name":"sprt_rexgrowl","path":"sprites/sprt_rexgrowl/sprt_rexgrowl.yy",},},
     {"id":{"name":"sprt_rock_fall","path":"sprites/sprt_rock_fall/sprt_rock_fall.yy",},},
     {"id":{"name":"sprt_rock","path":"sprites/sprt_rock/sprt_rock.yy",},},
     {"id":{"name":"sprt_ruby","path":"sprites/sprt_ruby/sprt_ruby.yy",},},

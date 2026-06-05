@@ -37,7 +37,7 @@
 	
 //Game Handler//
 	//Tutorial
-	if (!global.canwalk)
+	if (!global.canwalk )
 	{
 		if (point_distance(x, y, 880, 500) > 5) && (!global.learning)
 		{
@@ -58,8 +58,11 @@
 	
 	if (global.canedge)
 	{
-		if (x < 700 || x > room_width - 700) && (!instance_exists(obj_tutrex))
+		if (x < 700 || x > room_width - 700) && (!instance_exists(obj_tutrex) )
 		{
+			global.canedge = false;
+			global.midedge = true
+			obj_tutorial.at_crossroads = false
 			var _leftW = room_width / 3.6;
 			var _rightW = room_width - _leftW;
 			var _spawn_x = x
@@ -76,8 +79,9 @@
 	    };
 	};
 	
-	if (global.midedge) 
+	if (global.midedge && global.learning) 
 	{
+		show_debug_message("found the culprit!")
 		sprite_index = idle_sprt_bugu
 		exit
 	}
@@ -89,7 +93,10 @@
 	//Movement
 	if (!is_being_thrown)
 	{
-		hspd = _move * walkspd;
+		var _mvSpd = 0
+		if (hasEgg) _mvSpd = eggspd
+		else _mvSpd = walkspd
+		hspd = _move * _mvSpd;
 		if (place_meeting(x + hspd, y, obj_gamemanager.obstacles))
 		{
 			while (!place_meeting(x + sign(hspd), y, obj_gamemanager.obstacles))

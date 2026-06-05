@@ -1,120 +1,165 @@
-//Follow egg
-	x = obj_egg.x
-	y = obj_egg.y - 150
-	
-//Variables
-	if (at_crossroads)
-	{
-		if (global.candropegg && keyboard_check_pressed(global.drop_egg))
-		{
-			t = 0;
-			at_crossroads = false;
-		}
-		else if (global.canwalk && obj_bugu.hasEgg && !global.haswalked)
-		{
-			t = 0;
-			global.haswalked = true;
-			at_crossroads = false;
-		}
-		else if (global.rock)
-		{
-			t = 0;
-			global.rock = false;
-			at_crossroads = false;
-		}
-		else if (global.arrow)
-		{
-			t = 0;
-			global.arrow = false;
-			at_crossroads = false;
-		}
-		else if (global.midedge)
-		{
-			t = 0;
-			global.canedge = false;
-			at_crossroads = false;
-		}
-		else if (global.endedge)
-		{
-			t = 0;
-			global.midedge = false;
-			at_crossroads = false;
-		}
-		else if (global.canstart)
-		{
-			t = 0;
-			global.endedge = false;
-			global.learning = false;
-			at_crossroads = false;
-		}
-		exit
-	};
-	
-	t--;
-	
-	var _skip = (t <= 0);
+// Follow egg
+x = obj_egg.x;
+y = obj_egg.y - 150;
 
-//Intro sequence
-	if (_skip)
-	{
-		if (txt_index < array_length(pt_intro_texts) - 1) 
-		{
-			txt_index++;
-			t = 150
-		};
-	};
+//The Crossroads Brake (State Evaluation)
+if (at_crossroads)
+{
+	var _condition_met = false;
 	
-	switch txt_index
+	switch (current_wait_state)
 	{
-		case 1:
-			global.candropegg = true;
-			at_crossroads = true;
-			show_debug_message("CASE 1")
-		break;
-		
-		case 8:
-			global.canwalk = true;
-			at_crossroads = true;
-			show_debug_message("CASE 8")
-		break;
-		
-		case 9:
-			if !instance_exists(obj_tutrock)
-			{
-				show_debug_message("CASE 9")
-				instance_create_layer(x, y, "Instances", obj_tutrock);
-			};
-			at_crossroads = true;
-		break;
-		
-		case 12:
-			if !instance_exists(obj_warningsign) 
-			{
-				show_debug_message("CASE 12")
-				instance_create_layer(x, 628, "Instances", obj_warningsign);
-			};
-			at_crossroads = true;
-		break;
-		
-		case 16:
-			if !instance_exists(obj_tutrex) 
-			{
-				global.canedge = true;
-				show_debug_message("CASE 16")
-				at_crossroads = true;
+		case TUT_STATE.DROP_EGG:
+			if (global.candropegg && keyboard_check_pressed(global.drop_egg)) {
+				_condition_met = true;
 			}
 		break;
 		
-		case 17:
-			global.endedge = true;
-			show_debug_message("CASE 17")
-			at_crossroads = true;
+		case TUT_STATE.WALK:
+			if (global.canwalk && obj_bugu.hasEgg && !global.haswalked) {
+				global.haswalked = true;
+				_condition_met = true;
+			}
 		break;
 		
-		case 23:
-			global.canstart = true;
-			global.midedge = false;
-			show_debug_message("CASE 24")
-			alarm[0] = 400
+		case TUT_STATE.ROCK:
+			if (global.rock) {
+				global.rock = false;
+				_condition_met = true;
+			}
 		break;
-	};
+		
+		case TUT_STATE.ARROW:
+			if (global.arrow) {
+				global.arrow = false;
+				_condition_met = true;
+			}
+		break;
+		
+		case TUT_STATE.MID_EDGE:
+			if (global.midedge && (keyboard_check_pressed(global.key_select) || keyboard_check_pressed(vk_enter))) {
+				global.canedge = false;
+				global.midedge = false;
+				_condition_met = true;
+			}
+		break;
+		
+		case TUT_STATE.END_SCREAM:
+			if (global.endscream && !audio_is_playing(snd_rexy)) {
+				global.endedge = true;
+				_condition_met = true;
+			}
+		break;
+		
+		case TUT_STATE.ENDEDGE:
+			if (global.endedge) {
+				global.endscream = false;
+				_condition_met = true;
+			}
+		break;
+		
+		case TUT_STATE.CAN_START:
+			if (global.canstart) {
+				global.endedge = false;
+				global.learning = false;
+				_condition_met = true;
+			}
+		break;
+	}
+	
+	//If the player did the required action, unpause and advance text
+	if (_condition_met) 
+	{
+		t = 0;
+		at_crossroads = false;
+		current_wait_state = TUT_STATE.NONE;
+	}
+	else 
+	{
+		exit; //Block frame progress until condition is hit
+	}
+}
+
+//Intro Sequence (Text Advance Mechanics)
+t--;
+var _can_skip = !array_contains(unskippable_texts, txt_index);
+var _expired_t = (t <= 0);
+var _skip = _can_skip  && (keyboard_check_pressed(global.key_select) || keyboard_check_pressed(vk_enter));
+
+if (_expired_t || _skip)
+{
+	if (typist.get_state() < 1)
+	{
+		typist.skip();
+	}
+	else if (txt_index < array_length(pt_intro_texts) - 1) 
+	{
+		txt_index++;
+		t = 185;
+	}
+}
+
+// 4. Event Triggers (Setting Up the Next State)
+switch (txt_index)
+{
+	case 1:
+		show_debug_message("CASE 1: Drop Egg Tutorial");
+		global.candropegg = true;
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.DROP_EGG;
+	break;
+	
+	case 8:
+		show_debug_message("CASE 8: Walk Tutorial");
+		global.canwalk = true;
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.WALK;
+	break;
+	
+	case 9:
+		show_debug_message("CASE 9: Rock Spawn");
+		if (!instance_exists(obj_tutrock)) {
+			instance_create_layer(x, y, "Instances", obj_tutrock);
+		}
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.ROCK;
+	break;
+	
+	case 12:
+		show_debug_message("CASE 12: Warning Sign Spawn");
+		if (!instance_exists(obj_warningsign)) {
+			instance_create_layer(x, 628, "Instances", obj_warningsign);
+		}
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.ARROW;
+	break;
+	
+	case 16:
+		show_debug_message("CASE 16: Rex Edge Tutorial");
+		if (!instance_exists(obj_tutrex)) {
+			global.canedge = true;
+			at_crossroads = true;
+			current_wait_state = TUT_STATE.MID_EDGE;
+		}
+	break;
+	
+	case 22:
+		show_debug_message("CASE 22: Rex Scream");
+		if (!global.endscream) {
+			sound_handler(snd_rexy);
+			global.endscream = true;
+		}
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.END_SCREAM;
+	break;
+	
+	case 23:
+		show_debug_message("CASE 23: Level Setup Handover");
+		if (!global.canstart) {
+			global.canstart = true;
+			alarm[0] = 250;
+		}
+		at_crossroads = true;
+		current_wait_state = TUT_STATE.CAN_START;
+	break;
+}

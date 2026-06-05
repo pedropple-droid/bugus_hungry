@@ -115,4 +115,5 @@
 	global.canedge = false;
 	global.midedge = false;
 	global.endedge = false;
+	global.endscream = false;
 	global.canstart = false;
