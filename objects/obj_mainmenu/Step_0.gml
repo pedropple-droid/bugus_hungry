@@ -12,19 +12,31 @@
 	var curr_menu_max = ( fmenu ? menu_max : ( settings ? st_menu_max : ( kbind ? kb_menu_max : df_menu_max ) ) )
 	var current_ref = current.ref
 	
+	if changing
+	{
+		if (keyboard_check_pressed(global.key_select)) || !audio_is_playing(snd_rexy)
+		{
+			changing = false;
+			dfmenu = false;
+			audio_stop_sound(snd_rexy);
+			room_goto(rm_game);
+		};
+		exit
+	};
+		
 	//Navigation handler
 	if key_up
 	{
 		curr_index--;
 		if (curr_index < 0) curr_index = (curr_menu_max - 1);
-		sound_handler(snd_movemenu, , , false)
+		sound_handlerFX(snd_movemenu, , , false)
 	};
 
 	if key_down
 	{
 		curr_index++;
 		if (curr_index >= curr_menu_max) curr_index = 0;
-		sound_handler(snd_movemenu, , , false)
+		sound_handlerFX(snd_movemenu, , , false)
 	};
 	
 	if fmenu
@@ -37,7 +49,7 @@
 			case "button":
 			if key_select
 			{
-				sound_handler(snd_selectother, , , false)
+				sound_handlerFX(snd_selectother, , , false)
 				if (current_ref == "play") 
 				{
 					fmenu = false;
@@ -69,18 +81,6 @@
 			fmenu = true;
 		};
 		
-		if changing
-		{
-			if (keyboard_check_pressed(global.key_select)) || !audio_is_playing(snd_rexy)
-			{
-				changing = false;
-				dfmenu = false;
-				audio_stop_sound(snd_rexy);
-				room_goto(rm_game);
-			};
-			exit
-		};
-		
 		switch (current.type)
 		{
 			case "button":
@@ -110,7 +110,7 @@
 			
 				layer_sprite_change(mnArt, sprt_postplay);
 				audio_stop_sound(snd_menusong);
-				sound_handler(snd_rexy);
+				sound_handlerFX(snd_rexy);
 			};
 		};
 	}
@@ -128,14 +128,49 @@
 		
 		switch current.type
 		{
-			case "slider":
-				var val = variable_global_get(current.ref);
+			case "sliderFx":
+				var valFx = variable_global_get(current.ref);
 
-				if (key_left)  val -= current.step;
-				if (key_right) val += current.step;
+				if (key_left)  valFx -= current.step;
+				if (key_right) valFx += current.step;
 
-				val = clamp(val, current.min, current.max);
-				variable_global_set(current.ref, val);
+				valFx = clamp(valFx, current.min, current.max);
+				variable_global_set(current.ref, valFx);
+			break;
+
+			case "sliderMus":
+				var valMus = variable_global_get(current.ref);
+
+				if (key_left)
+				{
+					valMus -= current.step;
+					
+					valMus = clamp(valMus, current.min, current.max);
+					
+					variable_global_set(current.ref, valMus);
+					
+					audio_stop_sound(snd_menusong)
+					if (!changing)
+					{
+						sound_handlerMUS(snd_menusong, true)
+					};
+				};
+				
+				if (key_right)
+				{
+					valMus += current.step;
+					
+					valMus = clamp(valMus, current.min, current.max);
+					
+					variable_global_set(current.ref, valMus);
+					
+					audio_stop_sound(snd_menusong)
+					
+					if (!changing)
+					{
+						sound_handlerMUS(snd_menusong, true)
+					};
+				};
 			break;
 
 			case "list":

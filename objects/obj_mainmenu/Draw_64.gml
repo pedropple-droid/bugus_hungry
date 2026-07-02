@@ -131,10 +131,16 @@ if settings
 	    //Switch logic to prepare the display value and extra graphics
 	    switch (item.type) 
 	    {
-	        case "slider":
-	            var sliderVal = variable_global_get(item.ref);
-	            if (is_undefined(sliderVal)) sliderVal = 50; 
-	            value_display = string(sliderVal);
+	        case "sliderFx":
+	            var sliderValFx = variable_global_get(item.ref);
+	            if (is_undefined(sliderValFx)) sliderValFx = 100; 
+	            value_display = string(sliderValFx);
+	        break;
+			
+			case "sliderMus":
+	            var sliderValMus = variable_global_get(item.ref);
+	            if (is_undefined(sliderValMus)) sliderValMus = 100;
+	            value_display = string(sliderValMus);
 	        break;
 
 	        case "list":

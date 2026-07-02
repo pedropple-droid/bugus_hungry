@@ -45,8 +45,8 @@
 	
 	//Settings menu
 	st_menu = [
-		{ type:"slider", name:"Music",   ref:"MUSvolume", min:0, max:100, step:5, waiting:false  },
-		{ type:"slider", name:"Effects", ref:"FXvolume", min:0, max:100, step:5, waiting:false  },
+		{ type:"sliderMus", name:"Music",   ref:"MUSvolume", min:0, max:100, step:5, waiting:false  },
+		{ type:"sliderFx", name:"Effects", ref:"FXvolume", min:0, max:100, step:5, waiting:false  },
 		{ type:"list", name:"Resolution", ref:"resolution", options:["800x600","1280x720","1920x1080"], index: 1, waiting:false },
 		{ type:"keybind", name:"Keybinds", ref:"keybind", waiting:false }
 		];
@@ -87,8 +87,8 @@
 //Global variables
 	global.overall_score = 0
 	//Defaults
-		if (!variable_global_exists("FXvolume"))		     global.FXvolume = 50;
-		if (!variable_global_exists("MUSvolume"))		    global.MUSvolume = 50;
+		if (!variable_global_exists("FXvolume"))		     global.FXvolume = 100;
+		if (!variable_global_exists("MUSvolume"))		    global.MUSvolume = 100;
 		if (!variable_global_exists("resolution")) global.resolution = "1280x720";
 		if (!variable_global_exists("key_up"))		     global.key_up = ord("W");
 		if (!variable_global_exists("key_down"))	   global.key_down = ord("S");
@@ -97,17 +97,17 @@
 		if (!variable_global_exists("key_select"))   global.key_select = vk_space;
 		if (!variable_global_exists("key_escape"))  global.key_escape = vk_escape;
 		if (!variable_global_exists("drop_egg"))	   global.drop_egg = ord("L");
-		if (!variable_global_exists("gain"))					global.gain = 0.2;
+		if (!variable_global_exists("gain"))					global.gain = 0.01;
 		if (!variable_global_exists("difficulty"))   global.difficulty = "medium";
 		//Loads the score
 		scr_loadScore()
-
-//Music
+	
+	//Music
 	if !audio_is_playing(snd_menusong)
 	{
-		sound_handler(snd_menusong, true)
+		sound_handlerMUS(snd_menusong, true)
 	}
-
+	
 //Camera
 	//Initializing Viewports
 		view_enabled    = true;

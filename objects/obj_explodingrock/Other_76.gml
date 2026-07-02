@@ -1,10 +1,10 @@
 //Sound
 	sprite_broadcast("tremble", function()
 	{
-		sound_handler(snd_rocktremble)
+		sound_handlerFX(snd_rocktremble)
 	});
 
 	sprite_broadcast("explode", function()
 	{
-		sound_handler(snd_rockxplode)
+		sound_handlerFX(snd_rockxplode)
 	});

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_soundBus",
+  "%Name":"scr_soundBusFX",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_soundBus",
+  "name":"scr_soundBusFX",
   "parent":{
     "name":"scripts",
     "path":"folders/scripts.yy",

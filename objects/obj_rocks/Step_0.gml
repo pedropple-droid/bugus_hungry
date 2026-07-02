@@ -17,7 +17,7 @@
 		spawn_x = irandom_range(min_x, max_x) * fall_random_x
 		spawn_y = future_y;
 
-		sound_handler(snd_rockfalling, ,true, true)
+		sound_handlerFX(snd_rockfalling, ,true, true)
 		
 		active_shadow_id = layer_sequence_create("Instances", spawn_x, spawn_y, shadow_seq)
 	};
@@ -37,7 +37,7 @@
 		var _pos = layer_sequence_get_headpos(active_falling_id)
 		if _pos == 7
 		{
-			sound_handler(snd_rockhitground);
+			sound_handlerFX(snd_rockhitground);
 			cam_shake = 6;
 			active_rock_id = instance_create_layer(spawn_x, spawn_y, "Instances", hzrd_obj);
 		};

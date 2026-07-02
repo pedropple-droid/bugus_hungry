@@ -43,11 +43,11 @@
 			case "button":
 				if key_select
 				{
-					sound_handler(snd_selectother, , , false)
+					sound_handlerFX(snd_selectother, , , false)
 					if (current_ref == "continue") 
 					{
 						audio_stop_sound(snd_menusong)
-						sound_handler(snd_selectother, , , false)
+						sound_handlerFX(snd_selectother, , , false)
 						global.pause = false
 						fmenu = false
 					};
@@ -71,14 +71,14 @@
 		{
 			index--;
 			if (index < 0) index = (menu_max - 1);
-			sound_handler(snd_movemenu, , , false)
+			sound_handlerFX(snd_movemenu, , , false)
 		};
 
 		if key_down
 		{
 			index++;
 			if (index >= menu_max) index = 0;
-			sound_handler(snd_movemenu, , , false)
+			sound_handlerFX(snd_movemenu, , , false)
 		};
 	}
 	

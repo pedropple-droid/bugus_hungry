@@ -26,4 +26,13 @@
 	draw_set_halign(fa_center)
 	_current_text.draw(x, y, typist);
 
+	//tips text
+	var _current_tip = scribble(draw_tip)
+	.starting_format("f_skip", c_white)
+	.blend(c_white, 1)
+	.align(fa_center, fa_middle);
+	
+	_current_tip.draw(x, y, typist)
+
+	
 	

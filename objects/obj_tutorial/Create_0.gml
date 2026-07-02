@@ -1,8 +1,8 @@
 //Data sctructures
-	pt_intro_texts = [
+	pt_intro_texts = 
+	[
 	"[shake][delay, 80]OW", 
 	"[shake]ME SOLTA AI MERMÃO",//1
-	
 	//Drop egg input
 	
 	"[delay, 400]Que maluquice[delay, 160], virou crime dormir em paz",
@@ -48,7 +48,8 @@
 	unskippable_texts = [17, 22]
 
 	//Cases
-	enum TUT_STATE {
+	enum TUT_STATE 
+	{
 	NONE,
 	DROP_EGG,
 	WALK,
@@ -60,6 +61,7 @@
 	CAN_START
 	}
 	current_wait_state = TUT_STATE.NONE;
+	draw_tip = "";
 	
 //Text variables
 	txt_index = 0;

@@ -1,4 +1,4 @@
 sprite_broadcast("footstep", function()	
 {
-	sound_handler(snd_footstep, , , false)  
+	sound_handlerFX(snd_footstep, , , false)  
 }); 

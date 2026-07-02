@@ -75,7 +75,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"gamejam_primal",
   "resources":[
@@ -95,7 +95,6 @@
     {"id":{"name":"obj_collectiblespawner","path":"objects/obj_collectiblespawner/obj_collectiblespawner.yy",},},
     {"id":{"name":"obj_egg","path":"objects/obj_egg/obj_egg.yy",},},
     {"id":{"name":"obj_explodingrock","path":"objects/obj_explodingrock/obj_explodingrock.yy",},},
-    {"id":{"name":"obj_gameintro","path":"objects/obj_gameintro/obj_gameintro.yy",},},
     {"id":{"name":"obj_gamemanager","path":"objects/obj_gamemanager/obj_gamemanager.yy",},},
     {"id":{"name":"obj_geyser","path":"objects/obj_geyser/obj_geyser.yy",},},
     {"id":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},},
@@ -167,7 +166,8 @@
     {"id":{"name":"scr_KeyToScript","path":"scripts/scr_KeyToScript/scr_KeyToScript.yy",},},
     {"id":{"name":"scr_loadScore","path":"scripts/scr_loadScore/scr_loadScore.yy",},},
     {"id":{"name":"scr_saveScore","path":"scripts/scr_saveScore/scr_saveScore.yy",},},
-    {"id":{"name":"scr_soundBus","path":"scripts/scr_soundBus/scr_soundBus.yy",},},
+    {"id":{"name":"scr_soundBusFX","path":"scripts/scr_soundBusFX/scr_soundBusFX.yy",},},
+    {"id":{"name":"scr_soundBusMUS","path":"scripts/scr_soundBusMUS/scr_soundBusMUS.yy",},},
     {"id":{"name":"scr_spriteBroadcast","path":"scripts/scr_spriteBroadcast/scr_spriteBroadcast.yy",},},
     {"id":{"name":"scr_text","path":"scripts/scr_text/scr_text.yy",},},
     {"id":{"name":"scribble_add_macro","path":"scripts/scribble_add_macro/scribble_add_macro.yy",},},

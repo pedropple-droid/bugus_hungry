@@ -1,5 +1,7 @@
 //MAJOR CHECK
 	if (!instance_exists(obj_bugu)) exit
+	tut_spawn_x = 0
+	tut_spawn_y = 0
 	
 //Randomise set seed
 	randomise()

@@ -2,6 +2,7 @@
 x = obj_egg.x;
 y = obj_egg.y - 150;
 
+
 //The Crossroads Brake (State Evaluation)
 if (at_crossroads)
 {
@@ -10,34 +11,42 @@ if (at_crossroads)
 	switch (current_wait_state)
 	{
 		case TUT_STATE.DROP_EGG:
-			if (global.candropegg && keyboard_check_pressed(global.drop_egg)) {
-				_condition_met = true;
+			if (global.candropegg)
+			{
+				if (keyboard_check_pressed(global.drop_egg))
+				{
+					_condition_met = true;
+				}
 			}
 		break;
 		
 		case TUT_STATE.WALK:
-			if (global.canwalk && obj_bugu.hasEgg && !global.haswalked) {
+			if (global.canwalk && obj_bugu.hasEgg && !global.haswalked) 
+			{
 				global.haswalked = true;
 				_condition_met = true;
 			}
 		break;
 		
 		case TUT_STATE.ROCK:
-			if (global.rock) {
+			if (global.rock) 
+			{
 				global.rock = false;
 				_condition_met = true;
 			}
 		break;
 		
 		case TUT_STATE.ARROW:
-			if (global.arrow) {
+			if (global.arrow) 
+			{
 				global.arrow = false;
 				_condition_met = true;
 			}
 		break;
 		
 		case TUT_STATE.MID_EDGE:
-			if (global.midedge && (keyboard_check_pressed(global.key_select) || keyboard_check_pressed(vk_enter))) {
+			if (global.midedge && (keyboard_check_pressed(global.key_select) || keyboard_check_pressed(vk_enter))) 
+			{
 				global.canedge = false;
 				global.midedge = false;
 				_condition_met = true;
@@ -45,21 +54,24 @@ if (at_crossroads)
 		break;
 		
 		case TUT_STATE.END_SCREAM:
-			if (global.endscream && !audio_is_playing(snd_rexy)) {
+			if (global.endscream && !audio_is_playing(snd_rexy)) 
+			{
 				global.endedge = true;
 				_condition_met = true;
 			}
 		break;
 		
 		case TUT_STATE.ENDEDGE:
-			if (global.endedge) {
+			if (global.endedge) 
+			{			
 				global.endscream = false;
 				_condition_met = true;
 			}
 		break;
 		
 		case TUT_STATE.CAN_START:
-			if (global.canstart) {
+			if (global.canstart) 
+			{
 				global.endedge = false;
 				global.learning = false;
 				_condition_met = true;
@@ -107,6 +119,7 @@ switch (txt_index)
 		global.candropegg = true;
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.DROP_EGG;
+		draw_tip = "Aperte " + key_to_string(global.drop_egg) + " para soltar o ovo. Te permite andar mais rápido"
 	break;
 	
 	case 8:
@@ -114,6 +127,7 @@ switch (txt_index)
 		global.canwalk = true;
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.WALK;
+		draw_tip = "Aperte " + key_to_string(global.key_up) + ", " + key_to_string(global.key_left) + ", "  + key_to_string(global.key_down) + ", " + key_to_string(global.key_right) + " para poder e movimentar!"
 	break;
 	
 	case 9:
@@ -123,6 +137,7 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.ROCK;
+		draw_tip = "";
 	break;
 	
 	case 12:
@@ -132,6 +147,7 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.ARROW;
+		draw_tip = "";
 	break;
 	
 	case 16:
@@ -140,17 +156,19 @@ switch (txt_index)
 			global.canedge = true;
 			at_crossroads = true;
 			current_wait_state = TUT_STATE.MID_EDGE;
+			draw_tip = "Tente sair da caverna..."
 		}
 	break;
 	
 	case 22:
 		show_debug_message("CASE 22: Rex Scream");
 		if (!global.endscream) {
-			sound_handler(snd_rexy);
+			sound_handlerFX(snd_rexy);
 			global.endscream = true;
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.END_SCREAM;
+		draw_tip = "";
 	break;
 	
 	case 23:
@@ -161,5 +179,6 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.CAN_START;
+		draw_tip = "";
 	break;
 }
