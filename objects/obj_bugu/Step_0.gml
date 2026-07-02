@@ -81,7 +81,6 @@
 	
 	if (global.midedge && global.learning) 
 	{
-		show_debug_message("found the culprit!")
 		sprite_index = idle_sprt_bugu
 		exit
 	}

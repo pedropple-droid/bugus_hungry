@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"f_menu",
+  "%Name":"f_REMINDER",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":17,
@@ -1237,7 +1237,7 @@
   "last":0,
   "lineHeight":22,
   "maintainGms1Font":false,
-  "name":"f_menu",
+  "name":"f_REMINDER",
   "parent":{
     "name":"FonteInicio",
     "path":"folders/fonts/FonteInicio.yy",

@@ -28,11 +28,11 @@
 
 	//tips text
 	var _current_tip = scribble(draw_tip)
-	.starting_format("f_skip", c_white)
+	.starting_format("f_menu", c_white)
 	.blend(c_white, 1)
 	.align(fa_center, fa_middle);
 	
-	_current_tip.draw(x, y, typist)
+	_current_tip.draw(obj_bugu.x, obj_bugu.y + 80)
 
 	
 	

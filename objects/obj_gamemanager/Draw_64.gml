@@ -26,8 +26,9 @@
 		//Draw the space text only after the timer finishes
 		if global.can_restart 
 		{
-			scribble("[wave]press space to play again[wave]").align(fa_center, fa_middle).draw(_guiW, 450);
-			scribble("[wave]or press esc to go back to main menu[wave]").align(fa_center, fa_middle).draw(_guiW, 550);
+			scribble("[wave]Aperte " + key_to_string(global.key_select) + " [wave]para jogar de novo!").align(fa_center, fa_middle).draw(_guiW, 450);
+			scribble("[wave]Ou aperte " + key_to_string(global.key_escape) + "[wave] para voltar ao menu inicial").align(fa_center, fa_middle).draw(_guiW, 550);
+			scribble("[f_REMINDER]VALE LEMBRAR QUE: No momento nenhuma das duas opções funciona, o jogo irá fechar, requirindo que você abra-o de novo, bug temporário!").align(fa_center, fa_middle).draw(_guiW, 650).font_size();
 		};
 		exit
 	};

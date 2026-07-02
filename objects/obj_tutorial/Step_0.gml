@@ -11,13 +11,7 @@ if (at_crossroads)
 	switch (current_wait_state)
 	{
 		case TUT_STATE.DROP_EGG:
-			if (global.candropegg)
-			{
-				if (keyboard_check_pressed(global.drop_egg))
-				{
-					_condition_met = true;
-				}
-			}
+			if (global.candropegg) && (keyboard_check_pressed(global.drop_egg)) _condition_met = true;
 		break;
 		
 		case TUT_STATE.WALK:
@@ -119,7 +113,22 @@ switch (txt_index)
 		global.candropegg = true;
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.DROP_EGG;
-		draw_tip = "Aperte " + key_to_string(global.drop_egg) + " para soltar o ovo. Te permite andar mais rápido"
+		draw_tip = "Pressione " + key_to_string(global.drop_egg)
+	break;
+	
+	case 2:
+	case 3:
+	case 17:
+	case 18:
+	case 19:
+		draw_tip = ""
+	break;
+	
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+		draw_tip = "Você pode pular alguns textos com " + key_to_string(global.key_select)
 	break;
 	
 	case 8:
@@ -127,7 +136,7 @@ switch (txt_index)
 		global.canwalk = true;
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.WALK;
-		draw_tip = "Aperte " + key_to_string(global.key_up) + ", " + key_to_string(global.key_left) + ", "  + key_to_string(global.key_down) + ", " + key_to_string(global.key_right) + " para poder e movimentar!"
+		draw_tip = "Presssione " + key_to_string(global.key_up) + ", " + key_to_string(global.key_left) + ", "  + key_to_string(global.key_down) + ", " + key_to_string(global.key_right)
 	break;
 	
 	case 9:
@@ -137,7 +146,12 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.ROCK;
-		draw_tip = "";
+		draw_tip = "Cuidado com as pedras! algumas explodem!"
+	break;
+	
+	case 10:
+	case 11:
+		draw_tip = "Cuidado com as pedras! algumas explodem!"
 	break;
 	
 	case 12:
@@ -147,7 +161,16 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.ARROW;
-		draw_tip = "";
+		draw_tip = "Ao tomar dano sem o ovo, você perde uma vida, o ovo serve como um escudo!"
+	break;
+	
+	case 13:
+		draw_tip = "Ao tomar dano sem o ovo, você perde uma vida, o ovo serve como um escudo!"
+	break;
+	
+	case 14:
+	case 15:
+		draw_tip = "Se perder todas suas vidas... você perde!"
 	break;
 	
 	case 16:
@@ -160,6 +183,11 @@ switch (txt_index)
 		}
 	break;
 	
+	case 20:
+	case 21:
+		draw_tip = "Ah! e os cantos da caverna são protegidos, cuidado!"
+	break;
+	
 	case 22:
 		show_debug_message("CASE 22: Rex Scream");
 		if (!global.endscream) {
@@ -168,7 +196,7 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.END_SCREAM;
-		draw_tip = "";
+		draw_tip = "Ah! e os cantos da caverna são protegidos, cuidado!"
 	break;
 	
 	case 23:
@@ -179,6 +207,6 @@ switch (txt_index)
 		}
 		at_crossroads = true;
 		current_wait_state = TUT_STATE.CAN_START;
-		draw_tip = "";
+		draw_tip = "Espero que você goste :)"
 	break;
 }

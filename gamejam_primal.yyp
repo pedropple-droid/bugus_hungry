@@ -81,6 +81,7 @@
   "resources":[
     {"id":{"name":"f_ingame","path":"fonts/f_ingame/f_ingame.yy",},},
     {"id":{"name":"f_menu","path":"fonts/f_menu/f_menu.yy",},},
+    {"id":{"name":"f_REMINDER","path":"fonts/f_REMINDER/f_REMINDER.yy",},},
     {"id":{"name":"f_skip","path":"fonts/f_skip/f_skip.yy",},},
     {"id":{"name":"scribble_fallback_font","path":"fonts/scribble_fallback_font/scribble_fallback_font.yy",},},
     {"id":{"name":"obj_arrow","path":"objects/obj_arrow/obj_arrow.yy",},},

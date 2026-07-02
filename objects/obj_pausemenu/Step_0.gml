@@ -18,15 +18,14 @@
 	{
 		if (keyboard_check_pressed(vk_space))
 		{
-			room_restart()
+			game_restart()
 			global.game_over = false
 			global.pause = false
 			obj_gamemanager.spawn_text_timer = false
 		};
-		
 		if(keyboard_check_pressed(vk_escape))
 		{
-			room_goto(rm_mainmenu)
+			game_restart()
 			global.game_over = false
 			global.pause = false
 			obj_gamemanager.spawn_text_timer = false
