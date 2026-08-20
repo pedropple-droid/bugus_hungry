@@ -1,4 +1,4 @@
-//MAJOR CHECK
+ //MAJOR CHECK
 	if (!instance_exists(obj_bugu)) exit
 	
 //Menu input control
@@ -14,7 +14,7 @@
 	text = "[wave]Score: [wave]" + string(currScore);
 	
 	//Checks for game_over restart
-	if global.game_over
+	if global.game_over    
 	{
 		if (keyboard_check_pressed(vk_space))
 		{
